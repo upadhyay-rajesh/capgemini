@@ -3,12 +3,19 @@ package com.facebook.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class FacebookController {
+import com.facebook.service.FacebookService;
+import com.facebook.service.FacebookServiceInterface;
+
+public class FacebookController implements FacebookControllerInterface{
 
 	public void createProfile()throws Exception {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("enter your name");
 		String name=br.readLine();
+		System.out.println(FacebookControllerInterface.portno);
+		//portno=56;
+		
+		FacebookControllerInterface.myMethod1();
 		
 		System.out.println("enter your password");
 		String password=br.readLine();
@@ -21,25 +28,35 @@ public class FacebookController {
 		
 		System.out.println("your information is below");
 		System.out.println(name+"  "+password+"  "+email+"  "+address);
+		
+		FacebookServiceInterface fs=new FacebookService();
 	}
 
-	public void viewProfile() {
-
-	}
-
-	public void deleteProfile() {
-
-	}
-
-	public void editProfile() {
+	public void viewProfile()throws Exception {
 
 	}
 
-	public void searchProfile() {
+	public void deleteProfile()throws Exception {
 
 	}
 
-	public void viewAllProfile() {
+	public void editProfile()throws Exception {
 
+	}
+
+	public void searchProfile()throws Exception {
+
+	}
+
+	public void viewAllProfile() throws Exception{
+
+	}
+	public void myMethod() {
+		System.out.println("cvbcfb");
 	}
 }
+
+
+
+
+

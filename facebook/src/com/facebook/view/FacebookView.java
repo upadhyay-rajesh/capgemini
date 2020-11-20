@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import com.facebook.controller.FacebookController;
+import com.facebook.controller.FacebookControllerInterface;
 
 public class FacebookView {
 
@@ -27,7 +28,7 @@ public class FacebookView {
 		int j=Integer.parseInt(str1);
 		*/
 		
-		FacebookController fc=new FacebookController();
+		FacebookControllerInterface fc=new FacebookController();
 		
 		System.out.println("enter your choice");
 		String str=br.readLine();
