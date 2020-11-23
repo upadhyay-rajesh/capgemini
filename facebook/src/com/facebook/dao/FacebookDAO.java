@@ -1,11 +1,16 @@
 package com.facebook.dao;
 
+import com.facebook.entity.FacebookUser;
+
 public class FacebookDAO implements FacebookDAOInterface{
 
 	@Override
-	public void createProfileDAO() throws Exception {
-		// TODO Auto-generated method stub
-		
+	public int createProfileDAO(FacebookUser fu) throws Exception {
+		int i=0;
+		if(fu.getName().equals("mridula")) {
+			i=1;
+		}
+		return i;
 	}
 
 	@Override

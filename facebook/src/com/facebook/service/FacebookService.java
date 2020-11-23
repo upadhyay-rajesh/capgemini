@@ -2,14 +2,16 @@ package com.facebook.service;
 
 import com.facebook.dao.FacebookDAO;
 import com.facebook.dao.FacebookDAOInterface;
+import com.facebook.entity.FacebookUser;
 
 public class FacebookService implements FacebookServiceInterface{
 
 	@Override
-	public void createProfileService() throws Exception {
+	public int createProfileService(FacebookUser fu) throws Exception {
 		// TODO Auto-generated method stub
 		FacebookDAOInterface fd=new FacebookDAO();
-		
+		int i=fd.createProfileDAO(fu);
+		return i;
 	}
 
 	@Override
