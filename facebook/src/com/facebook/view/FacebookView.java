@@ -9,6 +9,8 @@ import com.facebook.controller.FacebookControllerInterface;
 public class FacebookView {
 
 	public static void main(String[] args)throws Exception {
+		String ss="y";
+		while(ss.contentEquals("y")) {
 		System.out.println("*****************************MAIN MENU********************");
 		System.out.println("press 1 to create profile");
 		System.out.println("press 2 to view profile");
@@ -48,6 +50,9 @@ public class FacebookView {
 		case 6:fc.viewAllProfile();
 			break;
 		default:System.out.println("wrong choice");
+		}
+		System.out.println("do you want to continue press y/n");
+		ss=br.readLine();
 		}
 	}
 

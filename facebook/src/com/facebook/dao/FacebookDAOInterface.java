@@ -11,5 +11,5 @@ public interface FacebookDAOInterface {
 
 	void searchProfileDAO()throws Exception;
 
-	public void viewAllProfileDAO()throws Exception;
+	public FacebookUser[] viewAllProfileDAO()throws Exception;
 }

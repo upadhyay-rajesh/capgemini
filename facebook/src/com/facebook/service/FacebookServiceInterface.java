@@ -11,5 +11,5 @@ public interface FacebookServiceInterface {
 
 	void searchProfileService()throws Exception;
 
-	public void viewAllProfileService()throws Exception;
+	public FacebookUser[] viewAllProfileService()throws Exception;
 }

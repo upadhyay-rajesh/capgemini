@@ -64,7 +64,16 @@ public class FacebookController implements FacebookControllerInterface{
 	}
 
 	public void viewAllProfile() throws Exception{
-
+		FacebookServiceInterface fs=new FacebookService();
+		FacebookUser[] ff=fs.viewAllProfileService();
+		
+		for(FacebookUser f1:ff) {
+			if(f1!=null) {
+			System.out.println("Name is "+f1.getName());
+			System.out.println("Email is "+f1.getEmail());
+			System.out.println("Address is "+f1.getAddress());
+			}
+		}
 	}
 	public void myMethod() {
 		System.out.println("cvbcfb");

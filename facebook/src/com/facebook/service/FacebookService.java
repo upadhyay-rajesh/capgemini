@@ -39,8 +39,9 @@ public class FacebookService implements FacebookServiceInterface{
 	}
 
 	@Override
-	public void viewAllProfileService() throws Exception {
-		// TODO Auto-generated method stub
+	public FacebookUser[] viewAllProfileService() throws Exception {
+		FacebookDAOInterface fd=new FacebookDAO();
+		return fd.viewAllProfileDAO();
 		
 	}
 
