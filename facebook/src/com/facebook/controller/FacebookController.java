@@ -48,7 +48,21 @@ public class FacebookController implements FacebookControllerInterface{
 	}
 
 	public void viewProfile()throws Exception {
-
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("enter your name");
+		String name=br.readLine();
+		
+		FacebookUser fu=new FacebookUser();
+		fu.setName(name);
+		
+		FacebookServiceInterface fs=new FacebookService();
+		FacebookUser i=fs.viewProfileService(fu);
+		
+		if(i!=null) {
+			System.out.println("record found");
+			System.out.println("name is "+i.getName()+"  password is "+i.getPassword());
+		}
+		
 	}
 
 	public void deleteProfile()throws Exception {

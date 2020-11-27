@@ -4,7 +4,7 @@ import com.facebook.entity.FacebookUser;
 
 public interface FacebookServiceInterface {
 	public int createProfileService(FacebookUser fu)throws Exception;
-	public void viewProfileService()throws Exception;
+	public FacebookUser viewProfileService(FacebookUser fu)throws Exception;
 
 	public void deleteProfileService()throws Exception;
 	void editProfileService()throws Exception;
