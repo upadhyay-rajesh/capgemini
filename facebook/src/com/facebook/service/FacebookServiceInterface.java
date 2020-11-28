@@ -1,5 +1,8 @@
 package com.facebook.service;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import com.facebook.entity.FacebookUser;
 
 public interface FacebookServiceInterface {
@@ -11,5 +14,6 @@ public interface FacebookServiceInterface {
 
 	void searchProfileService()throws Exception;
 
-	public FacebookUser[] viewAllProfileService()throws Exception;
+	public ArrayList<FacebookUser> viewAllProfileService()throws Exception;
+	public Map<String, Object> getAll();
 }

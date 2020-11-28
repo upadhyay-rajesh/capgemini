@@ -2,10 +2,15 @@ package com.facebook.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
 
 import com.facebook.entity.FacebookUser;
 import com.facebook.service.FacebookService;
 import com.facebook.service.FacebookServiceInterface;
+import com.facebook.utility.NameSorting;
 
 public class FacebookController implements FacebookControllerInterface{
 
@@ -79,7 +84,7 @@ public class FacebookController implements FacebookControllerInterface{
 
 	public void viewAllProfile() throws Exception{
 		FacebookServiceInterface fs=new FacebookService();
-		FacebookUser[] ff=fs.viewAllProfileService();
+		ArrayList<FacebookUser> ff=fs.viewAllProfileService();
 		
 		for(FacebookUser f1:ff) {
 			if(f1!=null) {
@@ -88,9 +93,43 @@ public class FacebookController implements FacebookControllerInterface{
 			System.out.println("Address is "+f1.getAddress());
 			}
 		}
+		
+		System.out.println("after sorting");
+		Collections.sort(ff, new NameSorting());
+		
+		for(FacebookUser f1:ff) {
+			if(f1!=null) {
+			System.out.println("Name is "+f1.getName());
+			System.out.println("Email is "+f1.getEmail());
+			System.out.println("Address is "+f1.getAddress());
+			}
+		}
+		
 	}
 	public void myMethod() {
 		System.out.println("cvbcfb");
+	}
+
+	@Override
+	public void getAll() {
+		FacebookServiceInterface fs=new FacebookService();
+		Map<String, Object> ss=fs.getAll();
+		
+		ArrayList<String> flist=(ArrayList<String>)ss.get("friendlist");
+		for(String s:flist) {
+			System.out.println(s);
+		}
+		
+		ArrayList<String> nn=(ArrayList<String>)ss.get("notification");
+		for(String s:nn) {
+			System.out.println(s);
+		}
+		
+		Iterator it=nn.iterator();
+		while(it.hasNext()) {
+			String s=(String)it.next();
+			System.out.println(s);
+		}
 	}
 }
 

@@ -1,5 +1,7 @@
 package com.facebook.controller;
 
+import java.util.Map;
+
 public interface FacebookControllerInterface {
 	public void createProfile()throws Exception;
 	public void viewProfile()throws Exception;
@@ -20,4 +22,6 @@ public interface FacebookControllerInterface {
 	public static void myMethod1() {
 		System.out.println("hello");
 	}
+	
+	public void getAll();
 }

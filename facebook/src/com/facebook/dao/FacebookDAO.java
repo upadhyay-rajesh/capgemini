@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.facebook.entity.FacebookUser;
 
@@ -85,10 +88,44 @@ public class FacebookDAO implements FacebookDAOInterface{
 	}
 
 	@Override
-	public FacebookUser[] viewAllProfileDAO() throws Exception {
-		FacebookUser[] f=null;
-		return f;
+	public ArrayList<FacebookUser> viewAllProfileDAO() throws Exception {
 		
+		Class.forName("org.postgresql.Driver");
+		Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/capgemini","postgres","rajesh");
+		
+		PreparedStatement ps=con.prepareStatement("select * from facebook");
+				
+		ResultSet res=ps.executeQuery();
+		 ArrayList<FacebookUser> f=new ArrayList<FacebookUser>();  //generic collection means specific class object only your bag will accept, it will not accept other class object
+		while(res.next()) {
+			FacebookUser fb=new FacebookUser();
+			fb.setName(res.getString(1));
+			fb.setPassword(res.getString(2));
+			fb.setEmail(res.getString(3));
+			fb.setAddress(res.getString(4));
+			
+			f.add(fb);
+		}
+		return f;
+	}
+	
+	public Map<String, Object> getAll(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		
+		ArrayList<String> notif=new ArrayList<String>();
+		notif.add("person1 viewed profile");
+		notif.add("person2 viewed profile");
+		notif.add("person3 viewed profile");
+		
+		ArrayList<String> flist=new ArrayList<String>();
+		flist.add("person1");
+		flist.add("person2");
+		flist.add("person3");
+		
+		m.put("notification", notif);
+		m.put("friendlist",flist);
+		
+		return m;
 	}
 
 }

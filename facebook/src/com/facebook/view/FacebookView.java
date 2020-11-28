@@ -18,6 +18,7 @@ public class FacebookView {
 		System.out.println("press 4 to edit profile");
 		System.out.println("press 5 to search profile");
 		System.out.println("press 6 to view All profile");
+		System.out.println("press 7 to view All detail");
 		
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		/*
@@ -49,6 +50,8 @@ public class FacebookView {
 			break;
 		case 6:fc.viewAllProfile();
 			break;
+		case 7:fc.getAll();
+		break;
 		default:System.out.println("wrong choice");
 		}
 		System.out.println("do you want to continue press y/n");

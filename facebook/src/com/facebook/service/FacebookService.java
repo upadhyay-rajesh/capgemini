@@ -1,5 +1,8 @@
 package com.facebook.service;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import com.facebook.dao.FacebookDAO;
 import com.facebook.dao.FacebookDAOInterface;
 import com.facebook.entity.FacebookUser;
@@ -40,10 +43,16 @@ public class FacebookService implements FacebookServiceInterface{
 	}
 
 	@Override
-	public FacebookUser[] viewAllProfileService() throws Exception {
+	public ArrayList<FacebookUser> viewAllProfileService() throws Exception {
 		FacebookDAOInterface fd=new FacebookDAO();
 		return fd.viewAllProfileDAO();
 		
+	}
+
+	@Override
+	public Map<String, Object> getAll() {
+		FacebookDAOInterface fd=new FacebookDAO();
+		return fd.getAll();
 	}
 
 }
