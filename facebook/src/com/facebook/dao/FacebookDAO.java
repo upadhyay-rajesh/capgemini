@@ -4,23 +4,30 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.facebook.entity.FacebookUser;
+import com.facebook.utility.FacebookException;
 
 public class FacebookDAO implements FacebookDAOInterface{
 	
 	@Override
-	public int createProfileDAO(FacebookUser fu) throws Exception {
+	public int createProfileDAO(FacebookUser fu)  {
 		int i=0;
-		
-		//Step 1 load driver
+		Connection con=null;
+		try {
+			
+			if(fu.getName().equals("Rajesh")) {
+				throw new FacebookException();
+			}
+			//Step 1 load driver
 		Class.forName("org.postgresql.Driver");
 		
 		//step 2 connect with database
-		Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/capgemini","postgres","rajesh");
+		con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/capgemini","postgres","rajesh");
 		
 		//step 3 create query
 		//Statement for static query
@@ -36,6 +43,28 @@ public class FacebookDAO implements FacebookDAOInterface{
 		//for select use executeQuery() and return ResultSet
 		
 		i=ps.executeUpdate();
+		
+		}
+		catch(FacebookException fe) {
+			fe.printStackTrace();
+		}
+		
+		catch(ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		catch(SQLException e2) {
+			e2.printStackTrace();
+		}
+		
+		
+		finally {
+			try {
+				con.close();
+			}
+			catch(Exception e) {
+				
+			}
+		}
 		
 		return i;
 	}

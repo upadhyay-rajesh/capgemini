@@ -6,7 +6,7 @@ import java.util.Map;
 import com.facebook.entity.FacebookUser;
 
 public interface FacebookDAOInterface {
-	public int createProfileDAO(FacebookUser fu)throws Exception;
+	public int createProfileDAO(FacebookUser fu);
 	public FacebookUser viewProfileDAO(FacebookUser fu)throws Exception;
 
 	public void deleteProfileDAO()throws Exception;

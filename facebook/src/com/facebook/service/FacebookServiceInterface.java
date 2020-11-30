@@ -6,7 +6,7 @@ import java.util.Map;
 import com.facebook.entity.FacebookUser;
 
 public interface FacebookServiceInterface {
-	public int createProfileService(FacebookUser fu)throws Exception;
+	public int createProfileService(FacebookUser fu);
 	public FacebookUser viewProfileService(FacebookUser fu)throws Exception;
 
 	public void deleteProfileService()throws Exception;

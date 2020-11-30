@@ -10,7 +10,7 @@ import com.facebook.entity.FacebookUser;
 public class FacebookService implements FacebookServiceInterface{
 
 	@Override
-	public int createProfileService(FacebookUser fu) throws Exception {
+	public int createProfileService(FacebookUser fu)  {
 		// TODO Auto-generated method stub
 		FacebookDAOInterface fd=new FacebookDAO();
 		int i=fd.createProfileDAO(fu);
