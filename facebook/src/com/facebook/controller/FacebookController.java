@@ -36,11 +36,6 @@ public class FacebookController implements FacebookControllerInterface{
 		fu.setEmail(email);
 		fu.setAddress(address);
 		
-		
-		
-	//	System.out.println("your information is below");
-		//System.out.println(name+"  "+password+"  "+email+"  "+address);
-		
 		FacebookServiceInterface fs=new FacebookService();
 		int i=fs.createProfileService(fu);
 		
