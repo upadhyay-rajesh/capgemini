@@ -7,14 +7,19 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd ">
 	
-	<bean id="k1" class="com.springcore1.Trainer"></bean>
+	
+	<ctx:annotation-config></ctx:annotation-config>
+	<ctx:component-scan base-package="com.springcore1"></ctx:component-scan>
+	
+	<!--  
+	<bean id="k1" class="com.springcore1.Trainer" init-method="add" destroy-method="add1" scope="prototype"></bean>
 	
 	<bean id="k2" class="com.springcore1.Trainees">
-		<property name="tt">
+		 <property name="tt">
 			<ref bean="k1"/>
-		</property>
+		</property>  
 	</bean>
-		
+		-->
 </beans>
 
 

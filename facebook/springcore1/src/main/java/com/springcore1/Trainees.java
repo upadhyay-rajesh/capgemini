@@ -1,14 +1,20 @@
 package com.springcore1;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component("k2")
 public class Trainees {
+	
+	@Autowired
 	private TrainerInterface tt;
 		
 	//adapter
-	public void setTt(TrainerInterface tt) {
+	/*public void setTt(TrainerInterface tt) {
 		this.tt = tt;
 	}
+	*/
 
 	public void access() {
 		tt.teach();
@@ -29,6 +35,10 @@ public class Trainees {
 		
 		
 		t1.access();
+		ctx.destroy();
+		ctx.close();
+		ctx.stop();
+		
 
 	}
 
